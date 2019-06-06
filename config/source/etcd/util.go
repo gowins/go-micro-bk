@@ -54,7 +54,7 @@ func update(e encoder.Encoder, data map[string]interface{}, v *mvccpb.KeyValue, 
 			if ok {
 				data[vkey] = val
 			} else {
-				data[vkey] = v.Value
+				data[vkey] = string(v.Value)
 			}
 		}
 		return data
@@ -83,7 +83,7 @@ func update(e encoder.Encoder, data map[string]interface{}, v *mvccpb.KeyValue, 
 				if ok {
 					kvals[k] = val
 				} else {
-					kvals[k] = v.Value
+					kvals[k] = string(v.Value)
 				}
 			}
 			break
